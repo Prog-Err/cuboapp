@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-import fs from 'fs';
-import path from 'path';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
 export function generateToken(userId:number, payload:{id:number,name:string}) :string {
@@ -26,12 +23,8 @@ export function decodeToken(token: string) :JwtPayload | null {
   }
 
 export function loadUserEnv(userId: number):string {
-  const envFilePath = path.resolve(__dirname, `.env.user.${userId}`);
-  if (fs.existsSync(envFilePath)) {
-    dotenv.config({ path: envFilePath });
-    console.log(process.env.JWT_SECRET_USER)
-    return process.env.JWT_SECRET_USER as string;
-  } else {
-    throw new Error(`Env file for user ${userId} not found`);
-  }
+    const secretKey = `JWT_SECRET_USER_${userId}`;
+    const secret = process.env[secretKey] as string;
+    console.log(secret)
+    return secret;
 }

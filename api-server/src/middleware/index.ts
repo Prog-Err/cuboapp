@@ -30,7 +30,6 @@ export async function authenticate(req: FastifyRequest, res: FastifyReply) {
         
         // Добавляем декодированные данные в `request` для дальнейшего использования
         (req as any).user = decoded;
-        console.log(decoded)
 
       } catch (err) {
         return res.status(401).send({ message: 'Invalid or expired token' });

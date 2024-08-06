@@ -97,9 +97,9 @@ export async function methodCreateUser({ api }: Application, req: FastifyRequest
   try {
     switch (req.method?.toLowerCase()) {
       case 'get':
-        const login='ilya@example.com'
+        const login='test@example.com'
         const password ='test'
-        const name ='ilya'
+        const name ='test'
         const entity = 'users';
         const FIXED_SALT = process.env.FIXED_SALT as string;
 
@@ -109,7 +109,7 @@ export async function methodCreateUser({ api }: Application, req: FastifyRequest
         // Создаем нового пользователя
         const newUser = await api.createOne(entity, {
           body: {
-            id:1,
+            id:3,
             login,
             password: hashedPassword,
             name
