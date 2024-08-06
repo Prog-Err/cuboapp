@@ -1,0 +1,29 @@
+name: cubo_api
+services:
+  cubo_api:
+    image: node:20
+    container_name: cubo_api
+    working_dir: /srv/web
+    volumes:
+      # static
+      - ./:/srv/web
+    ports:
+      - 8099:80
+    command: bash -c "yarn install && yarn serve"
+    restart: always
+
+  cubo_postgres:
+    image: postgres:15
+    container_name: cubo_postgres
+    environment:
+      POSTGRES_PASSWORD: ${CUBO_DB_PASSWORD}
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    restart: always
+
+  cubo_adminer:
+    image: adminer
+    container_name: cubo_adminer
+    restart: always
+    ports:
+      - 8098:8080

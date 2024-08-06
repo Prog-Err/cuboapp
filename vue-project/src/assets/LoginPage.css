@@ -1,0 +1,25 @@
+.login-page {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0px 20px 20px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
+
+  
