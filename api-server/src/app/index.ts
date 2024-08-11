@@ -25,8 +25,8 @@ export class Application {
   ) {
     // Настройка CORS
     this.server.register(cors, {
-      origin: 'http://localhost:5173', // Разрешить все источники
-      methods: ['POST','OPTIONS','GET','PUT','DELETE'], // Разрешенные методы
+      origin: 'http://localhost:5173',
+      methods: ['POST', 'OPTIONS', 'GET', 'PUT', 'DELETE'], // Разрешенные методы
       allowedHeaders: ['Content-Type', 'Authorization'], // Разрешенные заголовки
     })
 
@@ -72,7 +72,7 @@ export class Application {
         res.code(500).send('Server error');
       }
     });
-    
+
     // rest request
     this.server.all('/rest/:entity/:id?', async (req, res) => {
       try {
@@ -97,7 +97,7 @@ export class Application {
     //     res.code(500).send('Server error')
     //   }
     // })
-    
+
   }
 
   async init() {

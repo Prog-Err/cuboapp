@@ -1,5 +1,5 @@
 import { reactive, provide, inject } from 'vue';
-import type  { User } from '@/types/User'; // Импортируем тип User
+import type  { User } from '@/types/User'; 
 
 // Уникальный символ для идентификации хранилища
 const storeSymbol = Symbol('store');

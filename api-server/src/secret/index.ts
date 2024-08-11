@@ -25,6 +25,5 @@ export function decodeToken(token: string) :JwtPayload | null {
 export function loadUserEnv(userId: number):string {
     const secretKey = `JWT_SECRET_USER_${userId}`;
     const secret = process.env[secretKey] as string;
-    console.log(secret)
     return secret;
 }
